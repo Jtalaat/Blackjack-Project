@@ -55,14 +55,23 @@ for _ in range(2):
   user_cards.append(deal_card())
   computer_cards.append(deal_card())
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
-user_score = calculate_score(user_cards)
-Computer_score = calculate_score(computer_cards)
-print(f"your cards :{user_cards} \n current score : {user_score}")
-if user_score == 0 or Computer_score == 0 or user_score>21:
-  is_game_over = True
-#Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+while not is_game_over:
+  user_score = calculate_score(user_cards)
+  Computer_score = calculate_score(computer_cards)
+  print(f"your cards :{user_cards} \ncurrent score : {user_score}")
+  print(f"Computer first card :{computer_cards[0]}")
+  if user_score == 0 or Computer_score == 0 or user_score>21:
+    is_game_over = True
+  else:
+    user_should_deal = input("type 'Y' for get new card and 'N' to pass").upper()
+    if user_should_deal == 'Y':
+      user_cards.append(deal_card())
+    else:
+      is_game_over = True
+#Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended. 
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
+while com
 
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
